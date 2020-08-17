@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Person",
+  "description": "Person Details. Referred from - https://json-schema.org/learn/miscellaneous-examples.html",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "age",
+    "maritalStatus"
+  ],
+  "properties": {
+    "id": {
+      "description": "The unique identifier for a product",
+      "type": "integer"
+    },
+    "name": {
+      "description": "Name of the person",
+      "type": "string"
+    },
+    "age": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "maritalStatus": {
+      "type": "string",
+      "enum": [
+        "MARRIED",
+        "UNMARRIED",
+        "DIVORCED"
+      ]
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qualification": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/qualification"
+      }
+    }
+  },
+  "definitions": {
+    "qualification": {
+      "type": "object",
+      "required": [
+        "qualification-name",
+        "passing-year"
+      ],
+      "properties": {
+        "qualification-name": {
+          "type": "string",
+          "description": "The name of the qualification."
+        },
+        "passing-year": {
+          "type": "number",
+          "description": "The year of passing."
+        }
+      }
+    }
+  }
+}
